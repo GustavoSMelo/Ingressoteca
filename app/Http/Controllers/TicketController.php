@@ -17,17 +17,11 @@ class TicketController extends BaseController
     private $ticketModel;
 
     /**
-     * @var ShowModel
-     */
-    private $showModel;
-
-    /**
      * @param TicketModel $ticketModel
      */
-    public function __construct(TicketModel $ticketModel, ShowModel $showModel)
+    public function __construct(TicketModel $ticketModel)
     {
         $this->ticketModel = $ticketModel;
-        $this->showModel = $showModel;
 
         parent::__construct($this->ticketModel);
     }
@@ -60,7 +54,7 @@ class TicketController extends BaseController
                 'message' => 'ticket created with success'
             ]);
         } catch (DomainException) {
-            return throw new DomainException('error to create a new Ticket');
+            return response('error to create a new Ticket', 400);
         }
     }
 }

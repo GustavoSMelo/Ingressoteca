@@ -41,10 +41,9 @@ class UserController extends BaseController {
                 'message' => 'User created with success'
             ]);
         } catch (Exception $err) {
-            return throw new Exception('Error to create a user');
+            return response('Error to create a user', 400);
         }
     }
-
 
     /**
      * @inheritDoc
@@ -54,7 +53,7 @@ class UserController extends BaseController {
         $user = $this->userModel::find($id);
 
         if (empty($user)) {
-            return throw new Exception('Cannot update this user');
+            return response('Cannot update this user', 400);
         }
 
         $password = $request->input('password');
@@ -64,7 +63,7 @@ class UserController extends BaseController {
         $email = $request->input('email');
 
         if (empty($password)) {
-            return throw new Exception('Cannot update this user');
+            return response('Cannot update this user', 400);
         } else if (Hash::check($password, $user->password) && $password === $checkPassword) {
             try {
 
@@ -77,7 +76,7 @@ class UserController extends BaseController {
                     'message' => 'User updated with success'
                 ]);
             } catch (Exception $err) {
-                return throw new Exception('Error to update this user, try again');
+                return response('Error to update this user, try again', 401);
             }
         }
     }

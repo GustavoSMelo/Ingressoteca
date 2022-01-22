@@ -36,7 +36,7 @@ class ShowController extends BaseController
             $showsWithCategory = $this->showModel->where('category', $category)->get();
 
             if (count($showsWithCategory) <= 0) {
-                return throw new DomainException('Does not exist any show with this category');
+                return response('Does not exist any show with this category', 400);
             }
 
             $offset = ($request->page - 1) * 5;
@@ -48,7 +48,7 @@ class ShowController extends BaseController
 
             return response()->json($paginate);
         } catch (DomainException $err) {
-            return throw new DomainException('error to get shows with this category');
+            return response('error to get shows with this category', 400);
         }
     }
 }
