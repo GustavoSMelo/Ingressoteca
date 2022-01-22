@@ -41,7 +41,7 @@ class UserController extends BaseController {
                 'message' => 'User created with success'
             ]);
         } catch (Exception $err) {
-            return response('Error to create a user', 400);
+            return response()->json('Error to create a user', 400);
         }
     }
 
@@ -53,7 +53,7 @@ class UserController extends BaseController {
         $user = $this->userModel::find($id);
 
         if (empty($user)) {
-            return response('Cannot update this user', 400);
+            return response()->json('Cannot update this user', 400);
         }
 
         $password = $request->input('password');
@@ -76,7 +76,7 @@ class UserController extends BaseController {
                     'message' => 'User updated with success'
                 ]);
             } catch (Exception $err) {
-                return response('Error to update this user, try again', 401);
+                return response()->json('Error to update this user, try again', 401);
             }
         }
     }

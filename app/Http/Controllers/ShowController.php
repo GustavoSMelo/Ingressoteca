@@ -48,7 +48,7 @@ class ShowController extends BaseController
 
             return response()->json($paginate);
         } catch (DomainException $err) {
-            return response('error to get shows with this category', 400);
+            return response()->json('error to get shows with this category', 400);
         }
     }
 }

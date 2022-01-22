@@ -41,7 +41,7 @@ class AnnouncerController extends BaseController {
                 'message' => 'User created with success'
             ]);
         } catch (Exception $err) {
-            return response('Error to create a user', 400);
+            return response()->json('Error to create a user', 400);
         }
     }
 
@@ -54,7 +54,7 @@ class AnnouncerController extends BaseController {
         $user = $this->announcerModel::find($id);
 
         if (empty($user)) {
-            return response('Cannot update this user', 400);
+            return response()->json('Cannot update this user', 400);
         }
 
         $password = $request->input('password');
@@ -64,7 +64,7 @@ class AnnouncerController extends BaseController {
         $email = $request->input('email');
 
         if (empty($password)) {
-            return response('Cannot update this user', 400);
+            return response()->json('Cannot update this user', 400);
         } else if (Hash::check($password, $user->password) && $password === $checkPassword) {
             try {
 
@@ -77,7 +77,7 @@ class AnnouncerController extends BaseController {
                     'message' => 'User updated with success'
                 ]);
             } catch (Exception $err) {
-                return response('Error to update this user, try again', 400);
+                return response()->json('Error to update this user, try again', 400);
             }
         }
     }

@@ -29,7 +29,7 @@ class TokenController extends Controller
 
             return response($token);
         } catch (Exception $err) {
-            return response('Error to make login', 400);
+            return response()->json('Error to make login', 400);
         }
     }
 }

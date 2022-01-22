@@ -38,7 +38,7 @@ class BaseController extends Controller {
             ], 200);
 
         } catch (Exception $err) {
-            return response('A error happens when try save this data', 400);
+            return response()->json('A error happens when try save this data', 400);
         }
     }
 
@@ -53,7 +53,7 @@ class BaseController extends Controller {
             return response()
                 ->json($this->modelClass::all());
         } catch (Exception $err) {
-            return response('Error to get all datas', 400);
+            return response()->json('Error to get all datas', 400);
         }
     }
 
@@ -71,7 +71,7 @@ class BaseController extends Controller {
                 $this->modelClass::find($id)
             );
         } catch (Exception $err) {
-            return response('This information does not exists', 400);
+            return response()->json('This information does not exists', 400);
         }
     }
 
@@ -95,7 +95,7 @@ class BaseController extends Controller {
                 'message' => 'Updated with success '
             ]);
         } catch (Exception $err) {
-            return response('Error to update this information', 400);
+            return response()->json('Error to update this information', 400);
         }
     }
 
@@ -116,7 +116,7 @@ class BaseController extends Controller {
                 'message' => 'Deleted with success '
             ]);
         } catch (Exception $err) {
-            return response('Error to delete this information', 400);
+            return response()->json('Error to delete this information', 400);
         }
     }
 }

@@ -54,7 +54,7 @@ class TicketController extends BaseController
                 'message' => 'ticket created with success'
             ]);
         } catch (DomainException) {
-            return response('error to create a new Ticket', 400);
+            return response()->json('error to create a new Ticket', 400);
         }
     }
 }
