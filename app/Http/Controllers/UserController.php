@@ -30,8 +30,8 @@ class UserController extends BaseController {
         try {
             $password_hash = Hash::make($request->input('password'));
 
-            $this->userModel->first_name = ucfirst($request->input('firstName'));
-            $this->userModel->last_name = ucfirst($request->input('lastName'));
+            $this->userModel->first_name = ucfirst($request->input('first_name'));
+            $this->userModel->last_name = ucfirst($request->input('last_name'));
             $this->userModel->email = $request->input('email');
             $this->userModel->password = $password_hash;
 
@@ -41,7 +41,7 @@ class UserController extends BaseController {
                 'message' => 'User created with success'
             ]);
         } catch (Exception $err) {
-            return response()->json('Error to create a user', 400);
+            return response()->json('Error to create a user'.$err, 400);
         }
     }
 
@@ -58,8 +58,8 @@ class UserController extends BaseController {
 
         $password = $request->input('password');
         $checkPassword = $request->input('checkPassword');
-        $firstName = $request->input('firstName');
-        $lastName = $request->input('lastName');
+        $first_name = $request->input('first_name');
+        $last_name = $request->input('last_name');
         $email = $request->input('email');
 
         if (empty($password)) {
@@ -67,8 +67,8 @@ class UserController extends BaseController {
         } else if (Hash::check($password, $user->password) && $password === $checkPassword) {
             try {
 
-                $user->firstName = (empty($firstName)) ? $user->firstName : $firstName;
-                $user->lastName = (empty($lastName)) ? $user->lastName : $lastName;
+                $user->first_name = (empty($first_name)) ? $user->first_name : $first_name;
+                $user->last_name = (empty($last_name)) ? $user->last_name : $last_name;
                 $user->email = (empty($email)) ? $user->email : $email;
 
                 $user->save();

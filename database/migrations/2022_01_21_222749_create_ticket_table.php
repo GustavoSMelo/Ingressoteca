@@ -16,8 +16,8 @@ class CreateTicketTable extends Migration
         Schema::create('ticket', function (Blueprint $table) {
             $table->id();
             $table->string('key')->nullable(false)->unique(true);
-            $table->unsignedBigInteger('showId')->nullable(false);
-            $table->foreign('showId')->references('id')->on('show');
+            $table->unsignedBigInteger('show_id')->nullable(false);
+            $table->foreign('show_id')->references('id')->on('show');
             $table->timestamps();
         });
     }

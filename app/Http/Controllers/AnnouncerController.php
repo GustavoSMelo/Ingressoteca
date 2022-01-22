@@ -30,8 +30,8 @@ class AnnouncerController extends BaseController {
         try {
             $password_hash = Hash::make($request->input('password'));
 
-            $this->announcerModel->first_name = ucfirst($request->input('firstName'));
-            $this->announcerModel->last_name = ucfirst($request->input('lastName'));
+            $this->announcerModel->first_name = ucfirst($request->input('first_name'));
+            $this->announcerModel->last_name = ucfirst($request->input('last_name'));
             $this->announcerModel->email = $request->input('email');
             $this->announcerModel->password = $password_hash;
 
@@ -58,9 +58,9 @@ class AnnouncerController extends BaseController {
         }
 
         $password = $request->input('password');
-        $checkPassword = $request->input('checkPassword');
-        $firstName = $request->input('firstName');
-        $lastName = $request->input('lastName');
+        $checkPassword = $request->input('check_password');
+        $firstName = $request->input('first_name');
+        $last_name = $request->input('last_name');
         $email = $request->input('email');
 
         if (empty($password)) {
@@ -68,8 +68,8 @@ class AnnouncerController extends BaseController {
         } else if (Hash::check($password, $user->password) && $password === $checkPassword) {
             try {
 
-                $user->firstName = (empty($firstName)) ? $user->firstName : $firstName;
-                $user->lastName = (empty($lastName)) ? $user->lastName : $lastName;
+                $user->first_name = (empty($firstName)) ? $user->firstName : $firstName;
+                $user->last_name = (empty($last_name)) ? $user->last_name : $last_name;
                 $user->email = (empty($email)) ? $user->email : $email;
 
                 $user->save();

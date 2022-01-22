@@ -15,8 +15,8 @@ class CreatePurchaseTable extends Migration
     {
         Schema::create('purchase', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userId')->nullable(false);
-            $table->unsignedBigInteger('ticketId')->nullable(false);
+            $table->unsignedBigInteger('user_id')->nullable(false);
+            $table->unsignedBigInteger('ticket_id')->nullable(false);
             $table->timestamps();
         });
     }

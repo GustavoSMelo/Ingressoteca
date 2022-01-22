@@ -15,15 +15,15 @@ class CreateShowTable extends Migration
     {
         Schema::create('show', function (Blueprint $table) {
             $table->id();
-            $table->string('showName')->nullable(false)->unique(true);
-            $table->date('showDate')->nullable(false);
-            $table->time('startTime')->nullable(false);
-            $table->time('endTime')->nullable(false);
+            $table->string('show_name')->nullable(false)->unique(true);
+            $table->date('show_date')->nullable(false);
+            $table->time('start_time')->nullable(false);
+            $table->time('end_time')->nullable(false);
             $table->text('description')->nullable(true);
             $table->string('category')->nullable(false);
-            $table->integer('personLimit')->nullable(true);
-            $table->unsignedBigInteger('announcerId');
-            $table->foreign('announcerId')->references('id')->on('announcers');
+            $table->integer('person_limit')->nullable(true);
+            $table->unsignedBigInteger('announcer_id');
+            $table->foreign('announcer_id')->references('id')->on('announcers');
             $table->timestamps();
         });
     }

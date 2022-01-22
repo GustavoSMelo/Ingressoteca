@@ -33,10 +33,10 @@ class TicketController extends BaseController
     public function store(Request $request): JsonResponse
     {
         try {
-            $showId = $request->input('showId');
+            $showId = $request->input('show_id');
             $show = ShowModel::find($showId);
 
-            $countTickets = $this->ticketModel->where('showId', $showId)->count();
+            $countTickets = $this->ticketModel->where('show_id', $showId)->count();
 
             if (!$show || empty($show) || $show->personLimit >= $countTickets) {
                 return response()->json([
