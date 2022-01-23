@@ -1,0 +1,72 @@
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+main > section > h1 {
+    font-size: 42pt;
+}
+
+main > section > button {
+    background-color: #a3c4b2;
+    border: none;
+    padding: 30px;
+    font-size: 14pt;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    animation: 0.25s;
+}
+
+main > section > button > a {
+    color: #000;
+    text-decoration: none;
+}
+
+main > section > button:hover {
+    animation: 0.25s;
+    background-color: #a3c4c4;
+}
+
+main > section > a {
+    color: #909090;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+main > figure {
+    width: 40%;
+}
+
+main > figure > img {
+    width: 75%;
+}
+
+@media screen and (max-width: 780px) {
+    main {
+        flex-direction: column-reverse;
+    }
+
+    main > section {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 50px;
+    }
+
+    main > section > a {
+        margin-top: 14px;
+    }
+
+    main > figure {
+        width: 60%;
+    }
+    main > figure > img {
+        width: 95%;
+    }
+}
