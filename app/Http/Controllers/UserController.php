@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends BaseController {
     /**
@@ -41,6 +42,7 @@ class UserController extends BaseController {
                 'message' => 'User created with success'
             ]);
         } catch (Exception $err) {
+            Log::error($err);
             return response()->json('Error to create a user'.$err, 400);
         }
     }

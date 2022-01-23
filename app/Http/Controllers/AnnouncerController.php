@@ -30,55 +30,48 @@ class AnnouncerController extends BaseController {
         try {
             $password_hash = Hash::make($request->input('password'));
 
-            $this->announcerModel->first_name = ucfirst($request->input('first_name'));
-            $this->announcerModel->last_name = ucfirst($request->input('last_name'));
+            $this->announcerModel->name = ucfirst($request->input('name'));
             $this->announcerModel->email = $request->input('email');
             $this->announcerModel->password = $password_hash;
 
             $this->announcerModel->save();
 
             return response()->json([
-                'message' => 'User created with success'
+                'message' => 'Announcer created with success'
             ]);
         } catch (Exception $err) {
-            return response()->json('Error to create a user', 400);
+            return response()->json('Error to create a announcer', 400);
         }
     }
-
 
     /**
      * @inheritDoc
      */
     public function update(Request $request, int $id): JsonResponse
     {
-        $user = $this->announcerModel::find($id);
+        $announcer = $this->announcerModel::find($id);
 
-        if (empty($user)) {
-            return response()->json('Cannot update this user', 400);
+        if (empty($announcer)) {
+            return response()->json('Cannot update this announcer', 400);
         }
 
         $password = $request->input('password');
-        $checkPassword = $request->input('check_password');
-        $firstName = $request->input('first_name');
-        $last_name = $request->input('last_name');
+        $name = ucfirst($request->input('name'));
         $email = $request->input('email');
 
         if (empty($password)) {
-            return response()->json('Cannot update this user', 400);
-        } else if (Hash::check($password, $user->password) && $password === $checkPassword) {
+            return response()->json('Cannot update this announcer', 400);
+        }
             try {
+            $announcer->name = (empty($name)) ? $announcer->name : $name;
+            $announcer->email = (empty($email)) ? $announcer->email : $email;
 
-                $user->first_name = (empty($firstName)) ? $user->firstName : $firstName;
-                $user->last_name = (empty($last_name)) ? $user->last_name : $last_name;
-                $user->email = (empty($email)) ? $user->email : $email;
-
-                $user->save();
-                return response()->json([
-                    'message' => 'User updated with success'
-                ]);
-            } catch (Exception $err) {
-                return response()->json('Error to update this user, try again', 400);
-            }
+            $announcer->save();
+            return response()->json([
+                'message' => 'Announcer updated with success'
+            ]);
+        } catch (Exception $err) {
+            return response()->json('Error to update this announcer, try again', 400);
         }
     }
 }
