@@ -10,7 +10,7 @@ class AnnouncerModel extends Model
     /**
      * @var string
      */
-    protected $table = 'announcer';
+    protected $table = 'announcers';
 
     /**
      * @var array
