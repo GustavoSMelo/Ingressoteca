@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.success-message {
+    background-color: #C1F5CD;
+    color: #000;
+    text-align: center;
+    padding: 15px;
+    margin: 30px;
+    border: solid 3px #2FF532;
+    border-radius: 5px;
+    display: none;
+}
+
+.error-message {
+    background-color: #F4E5DF;
+    color: #000;
+    text-align: center;
+    padding: 15px;
+    margin: 30px;
+    border: solid 3px #F50700;
+    border-radius: 5px;
+    display: none;
+}
