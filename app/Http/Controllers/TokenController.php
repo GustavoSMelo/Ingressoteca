@@ -27,7 +27,10 @@ class TokenController extends Controller
 
             $token = JWT::encode(['email' => $user->email], env('JWT_KEY'));
 
-            return response($token);
+            return response()
+                ->json(
+                    ['token' => $token]
+                );
         } catch (Exception $err) {
             return response()->json('Error to make login', 400);
         }
