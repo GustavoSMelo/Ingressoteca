@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="/css/create.user.css" />
+    <link rel="stylesheet" type="text/css" href="/css/components/message.box.css"/>
 @endsection
 @section('content')
     <main>
@@ -20,5 +21,5 @@
             <button type="button" id="btnRegister">Register</button>
         </form>
     </main>
-    <script type="text/javascript" src="{{asset('js/create_user_account.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/create.user.account.js')}}"></script>
 @endsection
