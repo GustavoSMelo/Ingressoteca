@@ -29,7 +29,7 @@ class ShowController extends BaseController
      * @param string $category
      * @return JsonResponse
      */
-    public function getPerCategory(Request $request, string $category): JsonResponse
+    public function getPerCategory(string $category): JsonResponse
     {
         try {
             $showsWithCategory = $this->showModel->where('category', $category)->get();
@@ -38,14 +38,7 @@ class ShowController extends BaseController
                 return response('Does not exist any show with this category', 400);
             }
 
-            $offset = ($request->page - 1) * 5;
-
-            $paginate = $showsWithCategory->query()
-                ->offset($offset)
-                ->limit(5)
-                ->get();
-
-            return response()->json($paginate);
+            return response()->json($showsWithCategory);
         } catch (DomainException $err) {
             return response()->json('error to get shows with this category', 400);
         }

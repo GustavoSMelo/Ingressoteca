@@ -27,7 +27,7 @@ class Authenticate extends Middleware
      * @param string|null ...$guards
      * @return mixed
      */
-    public function handle($request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guards)
     {
         if ($this->auth->guard($guards)->guest()) {
             return response()->json('Unathorized', 401);

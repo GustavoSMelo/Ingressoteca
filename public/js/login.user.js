@@ -30,6 +30,7 @@ btnLogin.addEventListener('click', () => {
         })
         .then(data => {
             localStorage.setItem('Authorization', `Bearer ${data.token}`);
+            localStorage.setItem('id', data.id);
 
             window.document.location = `${APP_URL}/home`;
         })

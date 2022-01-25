@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Dflydev\DotAccessData\Exception\DataException;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 
 class BaseController extends Controller {
     /**
@@ -38,6 +39,7 @@ class BaseController extends Controller {
             ], 200);
 
         } catch (Exception $err) {
+            Log::error($err);
             return response()->json('A error happens when try save this data', 400);
         }
     }

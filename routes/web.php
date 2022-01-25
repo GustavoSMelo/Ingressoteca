@@ -17,3 +17,7 @@ Route::get('/user/login', fn () =>
 Route::get('/home', fn () =>
     view('client.home')
 );
+
+Route::get('/user/profile', fn () =>
+    view('client.user_profile')
+);

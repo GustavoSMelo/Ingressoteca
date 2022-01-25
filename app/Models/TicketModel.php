@@ -15,8 +15,8 @@ class TicketModel extends Model
     /**
      * @var array
      */
-    protected $fillables = [
-        'showId',
+    protected $fillable = [
+        'show_id',
         'key'
     ];
 

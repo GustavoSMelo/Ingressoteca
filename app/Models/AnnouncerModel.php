@@ -15,7 +15,7 @@ class AnnouncerModel extends Model
     /**
      * @var array
      */
-    protected $fillables = [
+    protected $fillable = [
         'name',
         'email',
         'password'

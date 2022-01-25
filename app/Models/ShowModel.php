@@ -19,15 +19,15 @@ class ShowModel extends Model
     /**
      * @var array
      */
-    protected $fillables = [
-        'showName',
-        'showDate',
-        'startTime',
-        'endTime',
+    protected $fillable = [
+        'show_name',
+        'show_date',
+        'start_time',
+        'end_time',
         'description',
         'category',
-        'personLimit',
-        'announcerId'
+        'person_limit',
+        'announcer_id'
     ];
 
     /**
