@@ -22,6 +22,13 @@ class AnnouncerModel extends Model
     ];
 
     /**
+     * @var array
+     */
+    protected $hidden = [
+        'password'
+    ];
+
+    /**
      * @var string
      */
     protected $primaryKey = 'id';
