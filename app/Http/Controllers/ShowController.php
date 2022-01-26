@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ShowModel;
 use DomainException;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -24,12 +25,28 @@ class ShowController extends BaseController
     }
 
     /**
+     * method used to get all shows from announcer
+     *
+     * @param integer $id
+     * @return JsonResponse
+     */
+    public function getByAnnouncerId(int $id): JsonResponse
+    {
+        try {
+            $shows = $this->showModel->where('announcer_id', $id)->get();
+
+            return response()->json(['shows' => $shows]);
+        } catch (Exception $err) {
+            return response()->json('Error to get all shows from announcer', 401);
+        }
+    }
+
+    /**
      * Method to get all show per one category
      *
      * @param string $category
-     * @return JsonResponse
      */
-    public function getPerCategory(string $category): JsonResponse
+    public function getPerCategory(string $category)
     {
         try {
             $showsWithCategory = $this->showModel->where('category', $category)->get();
