@@ -21,3 +21,19 @@ Route::get('/home', fn () =>
 Route::get('/user/profile', fn () =>
     view('client.user_profile')
 );
+
+Route::get('/admin/create/announcer', fn () =>
+    view('admin.create_user')
+);
+
+Route::get('/admin/login/announcer', fn () =>
+    view('admin.login_user')
+);
+
+Route::get('/admin/home', fn () =>
+    view('admin.home')
+);
+
+Route::get('/admin/add/show', fn () =>
+    view('admin.add_show')
+);
