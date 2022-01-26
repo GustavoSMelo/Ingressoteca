@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PurchaseModel;
 use App\Models\ShowModel;
 use App\Models\TicketModel;
 use DomainException;
@@ -18,11 +19,18 @@ class TicketController extends BaseController
     private $ticketModel;
 
     /**
-     * @param TicketModel $ticketModel
+     * @var PurchaseModel
      */
-    public function __construct(TicketModel $ticketModel)
+    private $purchaseModel;
+
+    /**
+     * @param TicketModel $ticketModel
+     * @param PurchaseModel $purchaseModel
+     */
+    public function __construct(TicketModel $ticketModel, PurchaseModel $purchaseModel)
     {
         $this->ticketModel = $ticketModel;
+        $this->purchaseModel = $purchaseModel;
 
         parent::__construct($this->ticketModel);
     }
@@ -40,7 +48,16 @@ class TicketController extends BaseController
 
             $countTickets = $this->ticketModel->where('show_id', $showId)->count();
 
-            $alreadyBought = $this->ticketModel->where('show_id', $showId)->where('user_id', $userId)->first();
+            $listTicket = $this->ticketModel->where('show_id', $showId)->get();
+            $alreadyBought = false;
+            foreach ($listTicket as $ticket) {
+                $bought = $this->purchaseModel->where('ticket_id', $ticket->id)->where('user_id', $userId)->first();
+
+                if (!empty($bought)) {
+                    $alreadyBought = true;
+                }
+            }
+
 
             if ($alreadyBought) {
                 Log::error('already bought this show');
