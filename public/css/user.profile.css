@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+main {
+    padding: 30px;
+}
+
+main > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+main > section > figure {
+    margin: 30px;
+}
+
+main > section > figure > img {
+    width: 180px;
+}
+
+main > article {
+    width: 100%;
+}
+
+.tickets {
+    width: 100%;
+    text-align: center;
+}
+
+.ticket-title {
+    background-color: #a3c4b2;
+}
+
+.ticket-title > th {
+    padding: 10px;
+}
+
+.tickets > tr {
+    margin: 30px;
+}
+
+.ticket {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 480px) {
+    .tickets {
+        overflow-x: scroll;
+    }
+}
