@@ -11,30 +11,32 @@
         </figure>
         <ul>
             <li>
-                <span>Welcome User</span>
-                <img src="/images/user.png" alt="user icon" />
+                <a href="{{env('APP_URL')}}/user/profile">
+                    <span>Welcome</span>
+                    <img src="/images/user.png" alt="user icon" />
+                </a>
             </li>
         </ul>
     </header>
     <main>
         <nav>
             <ul>
-                <li>
+                <li onclick="filterCategory('health')">
                     Health
                 </li>
-                <li>
+                <li onclick="filterCategory('tecnology')">
                     Tecnology
                 </li>
-                <li>
+                <li onclick="filterCategory('business')">
                     Business
                 </li>
-                <li>
+                <li onclick="filterCategory('education')">
                     Education
                 </li>
-                <li>
+                <li onclick="filterCategory('entertainments')">
                     Entertainments
                 </li>
-                <li>
+                <li onclick="filterCategory('others')">
                     Others
                 </li>
             </ul>
