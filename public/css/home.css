@@ -16,19 +16,20 @@ header > ul {
     list-style-type: none;
 }
 
-header > ul > li {
+header > ul > li > a {
     display: flex;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+    color: #000;
 }
 
-header > ul > li > img {
+header > ul > li > a > img {
     width: 30px;
     height: 30px;
 }
 
-header > ul > li > span {
+header > ul > li > a > span {
     margin-right: 20px;
 }
 
@@ -197,7 +198,6 @@ main > span > * {
     }
 
     main > nav > ul {
-        display: none;
         flex-direction: column;
         list-style-type: none;
         justify-content: space-between;
