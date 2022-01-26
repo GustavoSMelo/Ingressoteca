@@ -74,4 +74,35 @@ class AnnouncerController extends BaseController {
             return response()->json('Error to update this announcer, try again', 400);
         }
     }
+
+    /**
+     * Method used to make login in admin page
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function login (Request $request): JsonResponse
+    {
+        try {
+            $password = $request->input('password');
+            $email = $request->input('email');
+
+            $announcer = AnnouncerModel::where('email', $email)->first();
+
+            if (is_null($email) || !Hash::check($password, $announcer->password)) {
+                return response()->json([
+                    'Error to make login'
+                ], 400);
+            }
+
+            return response()
+                ->json(
+                    [
+                        'id' => $announcer->id
+                    ]
+                );
+        } catch (Exception $err) {
+            return response()->json('Error to make login', 400);
+        }
+    }
 }
