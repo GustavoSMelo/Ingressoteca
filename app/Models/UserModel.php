@@ -22,6 +22,8 @@ class UserModel extends Model
         'password'
     ];
 
+    protected $hidden = [ 'password' ];
+
     /**
      * @var string
      */
