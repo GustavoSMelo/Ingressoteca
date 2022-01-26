@@ -25,8 +25,6 @@ btnRegister.addEventListener('click', () => {
 
     fetch(`${APP_URL}/api/user`, requestInfo)
         .then(response => {
-            console.log(response);
-            console.log(requestInfo);
             if (!response.ok) {
                 const errorBox = window.document.querySelector('.error-message');
                 errorBox.style.display = "block";
