@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #a3c4b2;
+}
+
+form {
+    width: 60%;
+    box-shadow: 1px 1px 5px #707070;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+form > input {
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    width: 70%;
+    border: 3px solid #a3c4b2;
+}
+
+form > button {
+    background-color: #a3c4b2;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+}
