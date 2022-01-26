@@ -7,7 +7,7 @@ btnLogin.addEventListener('click', () => {
     const email = window.document.querySelector('#email').value;
     const password = window.document.querySelector('#password').value;
 
-    const responseInfo = {
+    const requestInfo = {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -19,7 +19,7 @@ btnLogin.addEventListener('click', () => {
         })
     };
 
-    fetch(`${APP_URL}/api/user/login`, responseInfo)
+    fetch(`${APP_URL}/api/user/login`, requestInfo)
         .then(response => {
             if (!response.ok){
                 const boxError = window.document.querySelector('.error-message');
