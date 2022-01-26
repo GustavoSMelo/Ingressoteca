@@ -90,3 +90,36 @@ function purchase (ticketId, alreadyBought) {
         .then(data => window.document.location = `${APP_URL}/user/profile`)
         .catch(error => console.error(error));
 }
+
+async function filterCategory (category) {
+    const requestInfo = {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('Authorization'),
+            'user_id': localStorage.getItem('id')
+        }
+    }
+
+    const showsCategory = await fetch(`${APP_URL}/api/show/category/${category}`, requestInfo);
+    const data = await showsCategory.json();
+
+    list.innerHTML = "";
+    data.forEach(element => {
+        list.innerHTML += `
+            <li>
+                <span>
+                    <h2>${element.show_name}</h2>
+                    <p>
+                        ${element.description}
+                    </p>
+                    <h3>Show date: ${element.show_date}</h3>
+                    <h4>Start with: ${element.start_time}</h4>
+                    <h4>End with: ${element.end_time}</h4>
+                    <button type="button" onclick="purchaseTicket(${element.id})">Purchase</button>
+                </span>
+            </li>
+        `
+    });
+}
