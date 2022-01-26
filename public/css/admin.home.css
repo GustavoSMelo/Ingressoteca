@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+main {
+    width: 100%;
+    padding: 30px;
+}
+
+main > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+main > section > figure {
+    margin: 30px;
+}
+
+main > section > figure > img {
+    width: 180px;
+}
+
+main > article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+main > article > button {
+    background-color: #a3c4b2;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14pt;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main > article > button > a {
+    color: #000;
+}
+
+main > article > table {
+    padding: 10px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+main > article > table > thead {
+    background-color: #a3c4b2;
+    padding: 10px;
+}
+
+main > article > table > tbody > tr > td {
+    padding: 5px;
+    text-align: center;
+}
