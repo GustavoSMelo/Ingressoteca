@@ -48,11 +48,9 @@
 <hr />
 <h2 align="center">Images of project: </h2>
 
-<img src="./.github/images/screenshot1.png" alt="landing page photo" />
 <img src="./.github/images/screenshot2.png" alt="landing page photo" />
 <img src="./.github/images/screenshot3.png" alt="landing page photo" />
 <img src="./.github/images/screenshot4.png" alt="landing page photo" />
-<img src="./.github/images/screenshot6.png" alt="landing page photo" />
 
 <h2 align="center"> :clipboard: What I need to run this project ?</h2>
 
