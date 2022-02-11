@@ -1,0 +1,4 @@
+if you find a problems with permissions, please run this codes:
+
+first: enter in app container using: docker exec -it app-container bash
+after that, run: chown nginx -R /usr/share/nginx/storage
