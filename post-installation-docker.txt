@@ -1,0 +1,2 @@
+- open the terminal in this folder
+- enter in docker container running this code: php artisan migrate
